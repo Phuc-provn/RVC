@@ -1,0 +1,70 @@
+
+sudo chown -R $USER:$USER logs/mi-test
+http://0.0.0.0:7865
+docker exec -it rvc sh -c "rm /app/logs/mi-test/G_*.pth /app/logs/mi-test/D_*.pth"
+docker cp infer-web.py rvc:/app/infer-web.py //修改infer-web.py
+docker cp infer/lib/rtrvc.py rvc:/app/infer/lib/rtrvc.py
+docker restart rvc (gpu disconnect)
+sudo fuser -k 7865/tcp
+
+# 把 G 模型丟進去
+docker cp /home/shao-ching/桌面/svc/RVC/RVC1006Nvidia/assets/pretrained_v2/G_269500.pth rvc:/app/assets/pretrained_v2/
+
+docker cp /home/shao-ching/下載/6Singer_800epoch.pth rvc:/app/assets/weights/  (model)
+docker cp /home/shao-ching/下載/added_IVF3159_speaker5.index rvc:/app/logs/mi-test/  (index)
+/home/shao-ching/桌面/svc/RVC/RVC1006Nvidia/dataset/testing/Lee/女孩.m4a
+docker exec -it rvc python3 infer-web.py --port 7865 --noautoopen
+
+index: logs/2spk/added_IVF256_Flat_nprobe_1_2spk_v2.index
+       logs/trained_IVF256_Flat_mi-test_v2.index
+testing: /app/dataset/testing/Tina/Tina_女孩.m4a
+         /app/dataset/testing/Lee/女孩.m4a
+         /app/dataset/testing/Amy/Amy_女孩_SVC_UserData.m4a
+         /app/dataset/testing/wi/Node_女孩_SVC_Userdata.m4a
+
+  "Ella": 1,
+  "dehua": 2,
+  "jaychou": 3,
+  "jj": 4,
+  "xianhu": 5,
+  "xinrin": 6
+  
+  tina:
+  id0=1
+  id1=-5
+  
+  Lee:
+  id0=6
+  id1=2
+  
+  amy:
+  id0=0
+  id1=-5
+  
+  wi:
+  id0=6
+  id1=2
+  
+  Alto-4 281.21 Hz
+  Tenor-4 205.86 Hz
+  
+  Ella 292.82 Hz
+    劉德華 225.79 Hz
+    周杰倫 263.90 Hz
+    林俊傑 279.59 Hz
+    王心凌 334.42 Hz
+    黃小琥 289.45
+
+Ella: 3930.78
+劉德華: 3230.78
+周杰倫: 4143.59
+林俊傑: 3371.75
+王心凌: 3718.88
+黃小琥: 4374.94
+
+Ella: 3588.29
+劉德華: 3230.65
+周杰倫: 3318.17  (1170.50)
+林俊傑: 3371.65 + 2637.97
+王心凌: 3018.39 + 714.52
+黃小琥: 4048.13

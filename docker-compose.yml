@@ -1,0 +1,26 @@
+services:
+  rvc-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rvc-singing-web
+    shm_size: 16g
+    ports:
+      - "8000:8000"
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - CUDA_VISIBLE_DEVICES=0
+      - BACKEND_HOST=0.0.0.0
+      - BACKEND_PORT=8000
+    volumes:
+      - ./weights:/app/weights
+      - ./logs:/app/logs
+      - ./assets:/app/assets
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu, utility, compute]
+    restart: unless-stopped
