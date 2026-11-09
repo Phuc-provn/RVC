@@ -76,7 +76,7 @@ export default function MicrophoneInput({
                     d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
                   />
                 </svg>
-                Loading AI Model...
+                Loading...
               </>
             ) : (
               <>🔴 Start Conversion</>
@@ -96,8 +96,8 @@ export default function MicrophoneInput({
       </div>
 
       {isInitializing && (
-        <p className="text-xs text-amber-600 text-center animate-pulse">
-          ⏳ Đang nạp mô hình vào GPU... Lần đầu khởi động có thể mất ~20-30s để nạp 2.5GB weights.
+        <p className="text-xs text-teal-700 text-center animate-pulse font-medium">
+          Connecting to AI server...
         </p>
       )}
     </div>
