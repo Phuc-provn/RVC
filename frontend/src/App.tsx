@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Header from './components/Header';
+import Instructions from './components/Instructions';
 import VoiceSelector from './components/VoiceSelector';
 import MicrophoneInput from './components/MicrophoneInput';
 import AudioOutput from './components/AudioOutput';
@@ -231,30 +232,19 @@ export default function App() {
           </div>
         )}
 
+        {/* How to use & Instructions Component */}
+        <Instructions />
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          {/* CARD 1: Real-Time Voice Conversion (Main workspace) */}
-          <div className="lg:col-span-7 bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 space-y-6">
+          {/* CARD 1: Live Voice Conversion Studio (Main workspace) */}
+          <div className="lg:col-span-7 bg-white rounded-2xl p-6 shadow-xs border border-slate-200/80 space-y-6">
             <div>
               <h2 className="text-lg font-bold text-slate-900 tracking-tight">
-                Real-Time Voice Conversion
+                Live Conversion Studio
               </h2>
               <p className="text-sm text-slate-500 mt-1">
-                Sing or speak into your microphone to hear your voice transformed live.
+                Sing or speak into your microphone to hear your voice transformed live in real time.
               </p>
-            </div>
-
-            {/* Quick instructions */}
-            <div className="bg-teal-50/60 border border-teal-100 rounded-xl p-4 text-xs sm:text-sm text-slate-700 space-y-1.5 leading-relaxed">
-              <p className="font-semibold text-teal-900 flex items-center gap-1.5">
-                <span>💡</span> Quick Steps
-              </p>
-              <ol className="list-decimal list-inside space-y-1 text-slate-600 pl-1">
-                <li>Select a target singer voice on the right.</li>
-                <li>Allow microphone access when prompted.</li>
-                <li>Click <strong>Start Conversion</strong> and begin singing.</li>
-                <li>Listen to your converted voice through headphones.</li>
-                <li>Click <strong>Stop</strong> when finished.</li>
-              </ol>
             </div>
 
             {/* Microphone Input Component */}
