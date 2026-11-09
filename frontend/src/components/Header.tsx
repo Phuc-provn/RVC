@@ -18,9 +18,6 @@ export default function Header({ isConnected, isConnecting }: HeaderProps) {
                 AI Live
               </span>
             </h1>
-            <p className="text-xs sm:text-sm text-slate-500">
-              Transform your voice into famous singers in real-time with RVC & GPU acceleration
-            </p>
           </div>
         </div>
 

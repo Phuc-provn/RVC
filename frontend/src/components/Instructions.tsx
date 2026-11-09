@@ -87,7 +87,6 @@ export default function Instructions() {
               <p className="font-semibold text-blue-950 mb-1">Tips for Best Audio Quality:</p>
               <ul className="list-disc list-inside space-y-0.5 text-xs text-blue-800/90">
                 <li>Sing 10–15 cm away from your microphone at a consistent volume.</li>
-                <li>Ensure a quiet background environment so the AI pitch extractor (RMVPE) detects your melody accurately.</li>
                 <li>Click <strong>Stop Conversion</strong> when you are finished singing to free GPU resources.</li>
               </ul>
             </div>
@@ -97,3 +96,4 @@ export default function Instructions() {
     </div>
   );
 }
+
