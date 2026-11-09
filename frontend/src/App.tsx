@@ -301,7 +301,7 @@ export default function App() {
       </main>
 
       <footer className="border-t border-slate-200 bg-white py-4 text-center text-xs text-slate-400">
-        RVC Singing Voice Conversion • Powered by AI
+        Real-time Singing Voice Conversion
       </footer>
     </div>
   );
